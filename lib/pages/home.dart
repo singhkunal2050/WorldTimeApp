@@ -9,12 +9,29 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Home"),
-      ),
-      body: Center(
-        child: Text('Kunal'),
-      ),
+      body: SafeArea(
+          child: Column(
+        children: <Widget>[
+          FlatButton.icon(
+            onPressed: () {
+              Navigator.pushNamed(context, '/location');
+            },
+            icon: Icon(
+              Icons.gps_fixed,
+              size: 30,
+            ),
+            label: Text(
+              "Edit Location",
+              style: TextStyle(
+                fontSize: 20,
+              ),
+            ),
+          ),
+        ],
+      )),
     );
   }
 }
+
+// to avoid having wid in areas like notch not panel etc use
+// safe area widget
