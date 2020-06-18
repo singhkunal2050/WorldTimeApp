@@ -6,13 +6,14 @@ class Chooselocation extends StatefulWidget {
 }
 
 class _ChooselocationState extends State<Chooselocation> {
- 
+  int c = 0;
+
   @override
   void initState() {
     super.initState();
     print("INIT RAN");
   }
- 
+
   @override
   Widget build(BuildContext context) {
     print("build RAN");
@@ -22,7 +23,19 @@ class _ChooselocationState extends State<Chooselocation> {
         appBar: AppBar(
           title: Text('Choose Location'),
         ),
-        body: Text("Locationnnnnnnnn"),
+        body: RaisedButton(
+          onPressed: () {
+            setState(() {
+              c = c + 1;
+            });
+          },
+          child: Text(
+            "C is ${c}",
+            style: TextStyle(
+              fontSize: 40,
+            ),
+          ),
+        ),
       ),
     );
   }
