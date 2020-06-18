@@ -6,8 +6,16 @@ class Chooselocation extends StatefulWidget {
 }
 
 class _ChooselocationState extends State<Chooselocation> {
+ 
+  @override
+  void initState() {
+    super.initState();
+    print("INIT RAN");
+  }
+ 
   @override
   Widget build(BuildContext context) {
+    print("build RAN");
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.grey[700],
