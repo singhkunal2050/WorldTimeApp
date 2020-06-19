@@ -15,10 +15,8 @@ class _LoadingState extends State<Loading> {
     await wt.getTime();
     print(wt.time);
     setState(() {
-      time=wt.time;
+      time = wt.time;
     });
-
-
   }
 
   @override
