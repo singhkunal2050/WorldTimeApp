@@ -12,14 +12,21 @@ class _LoadingState extends State<Loading> {
   void initState() {
     super.initState();
     print("INIT RAN");
-    getData();
+    getTime();
   }
 
-  void getData() async {
+  void getTime() async {
     Response response =
-        await get('https://lotuspolyservices.000webhostapp.com/api/read.php');
-    List data = jsonDecode(response.body);
-    print(data[0]['uname']);
+        await get('http://worldtimeapi.org/api/timezone/Asia/Kolkata');
+    Map data = jsonDecode(response.body);
+    // print(data['datetime'] + '\nTIME DIFF:: ' + data['utc_offset']);
+    String offset = data['utc_offset'].substring(1,3);
+    print(offset);
+
+    // create a ddtetime obj and parsing a string to a an obj type
+    DateTime now = DateTime.parse(data['datetime']);
+    now.add(Duration(hours: int.parse(offset)));
+    print(now);
   }
 
   @override
