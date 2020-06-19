@@ -9,12 +9,15 @@ class _ChooselocationState extends State<Chooselocation> {
   int c = 0;
 
   void getData() async {
-    // like setaTimeout
+    //like setaTimeout ~ Future.delayed
     // simulating network request 
+
+    // blocking code
     await Future.delayed(Duration(seconds: 3), () {
       print("ksr");
     });
 
+    // non blocking 
     Future.delayed(Duration(seconds: 2), () {
       print("kunaaaaaaaaaal");
     });
