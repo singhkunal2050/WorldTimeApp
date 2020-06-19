@@ -13,16 +13,16 @@ class _ChooselocationState extends State<Chooselocation> {
     // simulating network request 
 
     // blocking code
-    await Future.delayed(Duration(seconds: 3), () {
-      print("ksr");
+    String name = await Future.delayed(Duration(seconds: 3), () {
+      return "KSR";
     });
 
     // non blocking 
-    Future.delayed(Duration(seconds: 2), () {
-      print("kunaaaaaaaaaal");
+    String hobby = await Future.delayed(Duration(seconds: 2), () {
+      return "football";
     });
 
-    print('mns first');
+    print('${name} and ${hobby}');
   }
 
 
