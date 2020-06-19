@@ -6,36 +6,11 @@ class Chooselocation extends StatefulWidget {
 }
 
 class _ChooselocationState extends State<Chooselocation> {
-  int c = 0;
-
-  void getData() async {
-    //like setaTimeout ~ Future.delayed
-    // simulating network request 
-
-    // blocking code
-    String name = await Future.delayed(Duration(seconds: 3), () {
-      return "KSR";
-    });
-
-    // non blocking 
-    String hobby = await Future.delayed(Duration(seconds: 2), () {
-      return "football";
-    });
-
-    print('${name} and ${hobby}');
-  }
-
-
-  @override
-  void initState() {
-    super.initState();
-    print("INIT RAN");
-    getData();
-  }
+  int c = 0; 
 
   @override
   Widget build(BuildContext context) {
-    print("build RAN");
+    // print("build RAN");
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.grey[700],
@@ -50,7 +25,7 @@ class _ChooselocationState extends State<Chooselocation> {
           },
           child: Center(
             child: Text(
-              "C is ${c}",
+              "C is $c",
               style: TextStyle(
                 fontSize: 40,
               ),
