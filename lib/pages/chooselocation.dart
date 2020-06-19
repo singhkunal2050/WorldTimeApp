@@ -14,6 +14,11 @@ class _ChooselocationState extends State<Chooselocation> {
     Future.delayed(Duration(seconds: 3), () {
       print("ksr");
     });
+
+    Future.delayed(Duration(seconds: 2), () {
+      print("kunaaaaaaaaaal");
+    });
+
     print('mns first');
   }
 
