@@ -8,10 +8,21 @@ class Chooselocation extends StatefulWidget {
 class _ChooselocationState extends State<Chooselocation> {
   int c = 0;
 
+  void getData(){
+    // like setaTimeout
+    // simulating network request 
+    Future.delayed(Duration(seconds: 3), () {
+      print("ksr");
+    });
+    print('mns first');
+  }
+
+
   @override
   void initState() {
     super.initState();
     print("INIT RAN");
+    getData();
   }
 
   @override
@@ -29,10 +40,12 @@ class _ChooselocationState extends State<Chooselocation> {
               c = c + 1;
             });
           },
-          child: Text(
-            "C is ${c}",
-            style: TextStyle(
-              fontSize: 40,
+          child: Center(
+            child: Text(
+              "C is ${c}",
+              style: TextStyle(
+                fontSize: 40,
+              ),
             ),
           ),
         ),
