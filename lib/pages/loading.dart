@@ -20,12 +20,12 @@ class _LoadingState extends State<Loading> {
         await get('http://worldtimeapi.org/api/timezone/Asia/Kolkata');
     Map data = jsonDecode(response.body);
     // print(data['datetime'] + '\nTIME DIFF:: ' + data['utc_offset']);
-    String offset = data['utc_offset'].substring(1,3);
-    print(offset);
+    String hoffset = data['utc_offset'].substring(1,3);
+    String moffset = data['utc_offset'].substring(4,6);
 
     // create a ddtetime obj and parsing a string to a an obj type
     DateTime now = DateTime.parse(data['datetime']);
-    now.add(Duration(hours: int.parse(offset)));
+    now = now.add(Duration(hours: int.parse(hoffset) , minutes: int.parse(moffset)));
     print(now);
   }
 
