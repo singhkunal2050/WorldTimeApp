@@ -8,10 +8,10 @@ class Chooselocation extends StatefulWidget {
 class _ChooselocationState extends State<Chooselocation> {
   int c = 0;
 
-  void getData(){
+  void getData() async {
     // like setaTimeout
     // simulating network request 
-    Future.delayed(Duration(seconds: 3), () {
+    await Future.delayed(Duration(seconds: 3), () {
       print("ksr");
     });
 
