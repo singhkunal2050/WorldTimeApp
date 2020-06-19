@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
+import 'dart:convert';
+
 
 class Loading extends StatefulWidget {
   @override
@@ -16,7 +18,9 @@ class _LoadingState extends State<Loading> {
 
   void getData() async {
     Response response = await get('https://lotuspolyservices.000webhostapp.com/api/read_single.php?id=3');
-    print(response.body);
+    Map data = jsonDecode(response.body); 
+    print(data['id']);
+
   }
 
   @override
