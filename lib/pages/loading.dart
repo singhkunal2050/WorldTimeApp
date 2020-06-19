@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
-import 'dart:convert';
+import 'package:WorldTimeApp/pages/services/world_time.dart';
 
 class Loading extends StatefulWidget {
   @override
@@ -8,25 +7,17 @@ class Loading extends StatefulWidget {
 }
 
 class _LoadingState extends State<Loading> {
+  void setupWorldTime() async {
+    WorldTime wt =
+        WorldTime(location: 'Mumbai', flag: 'india.png', url: 'Asia/Kolkata');
+    await wt.getTime();
+  }
+
   @override
   void initState() {
     super.initState();
     print("INIT RAN");
-    getTime();
-  }
-
-  void getTime() async {
-    Response response =
-        await get('http://worldtimeapi.org/api/timezone/Asia/Kolkata');
-    Map data = jsonDecode(response.body);
-    // print(data['datetime'] + '\nTIME DIFF:: ' + data['utc_offset']);
-    String hoffset = data['utc_offset'].substring(1,3);
-    String moffset = data['utc_offset'].substring(4,6);
-
-    // create a ddtetime obj and parsing a string to a an obj type
-    DateTime now = DateTime.parse(data['datetime']);
-    now = now.add(Duration(hours: int.parse(hoffset) , minutes: int.parse(moffset)));
-    print(now);
+    setupWorldTime();
   }
 
   @override
