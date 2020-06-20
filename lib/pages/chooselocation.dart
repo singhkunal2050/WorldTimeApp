@@ -12,14 +12,31 @@ class _ChooselocationState extends State<Chooselocation> {
   List locations = [
     WorldTime(flag: 'india.png', location: 'India', url: 'Asia/Kolkata'),
     WorldTime(flag: 'brazil.png', location: 'Brazil', url: 'America/Santiago'),
-    WorldTime(flag: 'swiss.png', location: 'Switzerland', url: 'Pacific/Funafuti'),
+    WorldTime(
+        flag: 'swiss.png', location: 'Switzerland', url: 'Pacific/Funafuti'),
     WorldTime(flag: 'japan.png', location: 'Japan', url: 'Asia/Yangon'),
     WorldTime(flag: 'israel.png', location: 'Israel', url: 'Asia/Jerusalem'),
-    WorldTime(flag: 'australia.png', location: 'Australia', url: 'Australia/Sydney'),
+    WorldTime(
+        flag: 'australia.png', location: 'Australia', url: 'Australia/Sydney'),
     WorldTime(flag: 'spain.png', location: 'Spain', url: 'Europe/Berlin'),
     WorldTime(flag: 'canada.png', location: 'Canada', url: 'America/Regina'),
     WorldTime(flag: 'belgium.png', location: 'Belgium', url: 'Europe/Brussels'),
   ];
+
+  void updateTime(index) async {
+    WorldTime wt = locations[index];
+    await wt.getTime();
+
+    // routing to home with new location
+    // using pop
+    Navigator.pop(context, {
+      'location': wt.location,
+      'flag': wt.flag,
+      'url': wt.url,
+      'time': wt.time,
+      'isDaytime': wt.isDaytime
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,8 +56,13 @@ class _ChooselocationState extends State<Chooselocation> {
               child: Card(
                 color: Colors.white,
                 child: ListTile(
-                  onTap: () {},
-                  leading: CircleAvatar(backgroundImage: AssetImage('assets/${locations[index].flag}'),),
+                  onTap: () {
+                    updateTime(index);
+                  },
+                  leading: CircleAvatar(
+                    backgroundImage:
+                        AssetImage('assets/${locations[index].flag}'),
+                  ),
                   title: Text(locations[index].location),
                 ),
               ),
