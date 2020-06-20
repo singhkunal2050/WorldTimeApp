@@ -38,9 +38,9 @@ class _LoadingState extends State<Loading> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.blueAccent[800],
+        backgroundColor: Colors.blue[800],
         body: Center(
-          child: SpinKitChasingDots(
+          child: SpinKitCubeGrid(
             color: Colors.white,
             size: 40,
           ),
