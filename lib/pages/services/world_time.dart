@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'dart:convert';
+import 'package:intl/intl.dart';
 
 class WorldTime {
   String location; // location
@@ -29,10 +29,13 @@ class WorldTime {
           Duration(hours: int.parse(hoffset), minutes: int.parse(moffset)));
 
       // set a time property
-      time = now.toString();
+      time = DateFormat.jm().format(now);
     } catch (e) {
       print('Error is ' + e);
       time = "could not find time";
     }
   }
 }
+
+
+// used intln for formatting date and time

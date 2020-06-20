@@ -41,3 +41,4 @@ class _HomeState extends State<Home> {
 
 // to avoid having wid in areas like notch not panel etc use
 // safe area widget
+// using intl package for dormatting date
