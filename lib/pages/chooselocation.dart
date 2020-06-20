@@ -16,6 +16,7 @@ class _ChooselocationState extends State<Chooselocation> {
         backgroundColor: Colors.grey[700],
         appBar: AppBar(
           title: Text('Choose Location'),
+          backgroundColor: Colors.black,
         ),
         body: RaisedButton(
           onPressed: () {
